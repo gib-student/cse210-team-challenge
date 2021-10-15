@@ -11,7 +11,8 @@ namespace _05_jumper
       public DataValidationService _dataValidation = new DataValidationService();
 
       bool done = false;
-      public string _letter;
+      public string _letterString;
+      public char _letterChar;
 
       /// I don't know why this doesn't work, but we need to get this to work.
       /// For now the following code will have to do
@@ -32,18 +33,20 @@ namespace _05_jumper
       /// Get all the needed from the user
       public void GetInputs()
       {
-         _letter = _userService.PromptLetter();
-         while (!_dataValidation.ValidateLetter(_letter))
+         _letterString = _userService.PromptLetter();
+         while (!_dataValidation.ValidateLetter(_letterString))
          {
             _userService.ShowBadInputMessage();
             _userService.PromptLetter();
          }
+         // Convert to string now that we know it is valid input
+         _letterChar = char.Parse(_letterString.ToLower());
       }
 
       /// Update the game state
       public void DoUpdates()
       {
-         _jumper.CompareLetter(_letter, _secretWord);
+         _jumper.CompareLetter(_letterChar, _secretWord);
       }
 
       /// Do all the outputs for the game
