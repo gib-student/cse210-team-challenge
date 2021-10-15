@@ -6,7 +6,9 @@ namespace _05_jumper
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Starting point for the Jumper project.");
+            WordBank number = new WordBank();
+            Console.WriteLine(number.RandomNumber());
+            Console.WriteLine(number.callurl());
         }
     }
 }
