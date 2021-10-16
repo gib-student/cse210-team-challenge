@@ -7,8 +7,8 @@ namespace _05_jumper
         static void Main(string[] args)
         {
             WordBank number = new WordBank();
-            Console.WriteLine(number.RandomNumber());
-            Console.WriteLine(number.callurl());
+            Console.WriteLine(number.RandomWord());
+            
         }
     }
 }
