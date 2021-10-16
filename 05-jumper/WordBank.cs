@@ -10,12 +10,17 @@ namespace _05_jumper
     {
         static string _urlText;
         static List<string> _randomWords = new List<string>();
+        static bool filled = false;
         
         /// Return a random word from the list
         public string RandomWord()
         {
-            Callurl();
-            CompileList();
+            if (!filled)
+            {
+                Callurl();
+                CompileList();
+                filled = true;
+            }
             Random randomGenerator = new Random();
             int number = randomGenerator.Next(0, 10000);
             return _randomWords[number];
