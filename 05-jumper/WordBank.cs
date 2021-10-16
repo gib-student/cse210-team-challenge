@@ -10,32 +10,26 @@ namespace _05_jumper
     {
         public string _urlText;
         public string _word;
-        public List<char> _randomWord = new List<char>();
-        public string Callurl()  
+        public List<string> _randomWord = new List<string>();
+   
+        public void Callurl()  
         {  
             using(WebClient client = new WebClient())
             {
                 _urlText = client.DownloadString("https://www.mit.edu/~ecprice/wordlist.10000");
-                return _urlText;
             }
         } 
 
-        public List<char> CreateList()
+        public void CreateList()
         {
-            foreach (char c in _urlText)
-            {
-                _randomWord.Add(c);
-            }
-            return _randomWord;
+            _randomWord = _urlText.Split('\n').ToList();
         }
         
-        public string RandomWord()
+        public void RandomWord()
         {
-            //Why wont this work????
             Random randomGenerator = new Random();
-            int number = randomGenerator.Next(0, 1000);
+            int number = randomGenerator.Next(0, _randomWord.Count);
             _word = _randomWord[number];
-            return _word;
         }
     }
 }
