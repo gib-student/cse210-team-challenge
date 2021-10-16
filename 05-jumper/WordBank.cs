@@ -18,8 +18,7 @@ namespace _05_jumper
             {
                 _urlText = client.DownloadString("https://www.mit.edu/~ecprice/wordlist.10000");
             }
-        } 
-
+        }
         public void CreateList()
         {
             _randomWord = _urlText.Split('\n').ToList();
