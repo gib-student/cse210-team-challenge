@@ -7,13 +7,20 @@ namespace _05_jumper
    public class Jumper
    {
         // Class-wide variables go here
-        List<bool> _parachute = new List<bool>() {
-            true, true, true, true, true
-        };
 
-        public bool CompareLetter(string letter, string word)
+        /// Compare the letter guess given by player to the secret word and 
+        /// determine if the secret word contains that letter.
+        public bool CompareLetter(char letter, string word)
         {
-            throw new NotImplementedException();
+            foreach (char element in word)
+            {
+                if (element == letter)
+                {
+                    return true;
+                }
+            }
+            // No matches
+            return false;
         }
 
     }

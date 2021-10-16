@@ -17,15 +17,14 @@ namespace _05_jumper
         /// Get the letter the player wants to guess
         public string PromptLetter()
         {
-            Console.WriteLine("Please make a guess.");
-            string guess = Console.ReadLine();
-            return guess;
+            Console.Write("Guess a letter [a-z]: ");
+            return Console.ReadLine();
         }
 
         /// Show an "invalid input" message
         public void ShowBadInputMessage()
         {
-            Console.WriteLine("Sorry that is not a vaild input. Please guess again.");
+            Console.WriteLine("Please enter a letter a-z.");
         }
     }
 }
