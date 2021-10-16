@@ -31,6 +31,7 @@ namespace _05_jumper
         
         public string RandomWord()
         {
+            //Why wont this work????
             Random randomGenerator = new Random();
             int number = randomGenerator.Next(0, 1000);
             _word = _randomWord[number];
