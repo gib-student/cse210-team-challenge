@@ -8,34 +8,60 @@ namespace _05_jumper
 {
     public class WordBank
     {
-        public string _urlText;
-        public string _word;
-        public List<char> _randomWord = new List<char>();
-        public string Callurl()  
+        static string _urlText;
+        static List<string> _randomWords = new List<string>();
+        
+        /// Return a random word from the list
+        public string RandomWord()
+        {
+            Callurl();
+            CompileList();
+            Random randomGenerator = new Random();
+            int number = randomGenerator.Next(0, 10000);
+            return _randomWords[number];
+        }
+
+        /// Add the word in _urlText to the list of words
+        /// Parameters: first and last index of the word from _urlText
+        static void CompileList()
+        {
+            int ifirst = 0;
+            int ilast = 0;
+            for (int i = 0; i < _urlText.Length; i++)
+            {
+                if ((int)_urlText[i] == 10)
+                {
+                    // now we know where the end of the first word is
+                    ilast = i - 1;
+                    // Move past EOL character (line feed) for the next word
+                    i++; 
+                    // Add the word we identified into the list
+                    AddWord(ifirst, ilast);
+                    // move onto the next word
+                    ifirst = i;
+                }
+            }
+        }
+
+        /// Get all the words from a file and 
+        static void Callurl()  
         {  
             using(WebClient client = new WebClient())
             {
                 _urlText = client.DownloadString("https://www.mit.edu/~ecprice/wordlist.10000");
-                return _urlText;
-            }
-        } 
-
-        public List<char> CreateList()
-        {
-            foreach (char c in _urlText)
-            {
-                _randomWord.Add(c);
-            }
-            return _randomWord;
+            } 
         }
-        
-        public string RandomWord()
+
+        /// Add the word within the given indices from the URL text 
+        /// into the randomWords list
+        static void AddWord(int ifirst, int ilast)
         {
-            //Why wont this work????
-            Random randomGenerator = new Random();
-            int number = randomGenerator.Next(0, 1000);
-            _word = _randomWord[number];
-            return _word;
+            string word = "";
+            for(int i = ifirst; i <= ilast; i++)
+            {
+                word += _urlText[i];
+            }
+            _randomWords.Add(word);
         }
     }
 }
