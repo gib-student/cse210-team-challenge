@@ -17,6 +17,7 @@ namespace _05_jumper
             Console.WriteLine ("    0    ");
             Console.WriteLine ("   /|\   ");
             Console.WriteLine ("   / \   ");
+           }
 
           if (failed_try == 1)
           { 
@@ -39,7 +40,7 @@ namespace _05_jumper
             Console.WriteLine ("   / \   ");
            }
            if (failed_try == 3)
-          {
+           {
             Console.WriteLine (" \     / ");
             Console.WriteLine ("  \   /  ");
             Console.WriteLine ("    0    ");
@@ -47,14 +48,14 @@ namespace _05_jumper
             Console.WriteLine ("   / \   ");
            }
             if (failed_try == 4)
-          {
+            {
             Console.WriteLine ("  \   /  ");
             Console.WriteLine ("    0    ");
             Console.WriteLine ("   /|\   ");
             Console.WriteLine ("   / \   ");
            }
            if (failed_try == 5)
-          {
+           {
             Console.WriteLine ("    X    ");
             Console.WriteLine ("   /|\   ");
             Console.WriteLine ("   / \   ");
