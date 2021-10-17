@@ -4,14 +4,11 @@ namespace _05_jumper
 {
     class Program
     {
+        static string _randomWord;
         static void Main(string[] args)
         {
-            WordBank number = new WordBank();
-            number.Callurl();
-            number.CreateList();
-            number.RandomWord();
-            Console.WriteLine(number._word);
-            
+            Director theDirector = new Director();
+            theDirector.StartGame();
         }
     }
 }

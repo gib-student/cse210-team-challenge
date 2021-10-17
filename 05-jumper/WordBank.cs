@@ -8,27 +8,35 @@ namespace _05_jumper
 {
     public class WordBank
     {
-        public string _urlText;
-        public string _word;
-        public List<string> _randomWord = new List<string>();
+        static string _urlText;
+        static string _word;
+        static List<string> _randomWord = new List<string>();
+        static bool filled = false;
    
-        public void Callurl()  
+        static void Callurl()  
         {  
             using(WebClient client = new WebClient())
             {
                 _urlText = client.DownloadString("https://www.mit.edu/~ecprice/wordlist.10000");
             }
         }
-        public void CreateList()
+        static void CreateList()
         {
             _randomWord = _urlText.Split('\n').ToList();
         }
         
-        public void RandomWord()
+        public string RandomWord()
         {
+            if (!filled)
+            {
+                Callurl();
+                CreateList();
+                filled = true;
+            }
             Random randomGenerator = new Random();
             int number = randomGenerator.Next(0, _randomWord.Count);
             _word = _randomWord[number];
+            return _word;
         }
     }
 }
