@@ -59,6 +59,9 @@ namespace _05_jumper
             Console.WriteLine ("   /|\   ");
             Console.WriteLine ("   / \   ");
             isWinner = false;
+            Console.WriteLine("");
+            Console.WriteLine(" You died. Please try again...");
+            
            }
            
            
