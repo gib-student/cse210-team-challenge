@@ -6,7 +6,8 @@ namespace _06_mastermind
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Starting point for the Mastermind project.");
+            Director _theDirector = new Director();
+            _theDirector.StartGame();
         }
     }
 }
