@@ -1,14 +1,22 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
-            "name": ".NET Core Launch (console)",
+            "name": "04-hilo",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
+            "preLaunchTask": "build-04-hilo",
+            "program": "${workspaceFolder}/04-hilo/bin/Debug/net5.0/04-hilo.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/04-hilo",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": "05-jumper",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-05-jumper",
             "program": "${workspaceFolder}/05-jumper/bin/Debug/net5.0/05-jumper.dll",
             "args": [],
             "cwd": "${workspaceFolder}/05-jumper",
@@ -16,9 +24,48 @@
             "stopAtEntry": false
         },
         {
-            "name": ".NET Core Attach",
+            "name": "06-mastermind",
             "type": "coreclr",
-            "request": "attach"
+            "request": "launch",
+            "preLaunchTask": "build-06-mastermind",
+            "program": "${workspaceFolder}/06-mastermind/bin/Debug/net5.0/06-mastermind.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/06-mastermind",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": "07-speed",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-07-speed",
+            "program": "${workspaceFolder}/07-speed/bin/Debug/net5.0/07-speed.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/07-speed",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": "08-batter",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-08-batter",
+            "program": "${workspaceFolder}/08-batter/bin/Debug/net5.0/08-batter.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/08-batter",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": "final-project",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-final-project",
+            "program": "${workspaceFolder}/final-project/bin/Debug/net5.0/final-project.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/final-project",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
         }
     ]
 }

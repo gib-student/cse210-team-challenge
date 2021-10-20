@@ -23,5 +23,71 @@ namespace _05_jumper
             return false;
         }
 
+        public void DisplayJumper()
+        {
+            bool failed_try = 0;
+            bool isWinner = false;
+
+
+            while (failed_try = 0)
+            {
+                Console.WriteLine ("   ___   ");
+                Console.WriteLine (" /     \ ");
+                Console.WriteLine ("  _____  ");
+                Console.WriteLine (" \     / ");
+                Console.WriteLine ("  \   /  ");
+                Console.WriteLine ("    0    ");
+                Console.WriteLine ("   /|\   ");
+                Console.WriteLine ("   / \   ");
+                }
+
+          if (failed_try == 1)
+          { 
+            Console.WriteLine (" /     \ ");
+            Console.WriteLine ("  _____  ");
+            Console.WriteLine (" \     / ");
+            Console.WriteLine ("  \   /  ");
+            Console.WriteLine ("    0    ");
+            Console.WriteLine ("   /|\   ");
+            Console.WriteLine ("   / \   ");
+
+          }
+          if (failed_try == 2)
+          {
+            Console.WriteLine ("  _____  ");
+            Console.WriteLine (" \     / ");
+            Console.WriteLine ("  \   /  ");
+            Console.WriteLine ("    0    ");
+            Console.WriteLine ("   /|\   ");
+            Console.WriteLine ("   / \   ");
+           }
+           if (failed_try == 3)
+           {
+            Console.WriteLine (" \     / ");
+            Console.WriteLine ("  \   /  ");
+            Console.WriteLine ("    0    ");
+            Console.WriteLine ("   /|\   ");
+            Console.WriteLine ("   / \   ");
+           }
+            if (failed_try == 4)
+            {
+            Console.WriteLine ("  \   /  ");
+            Console.WriteLine ("    0    ");
+            Console.WriteLine ("   /|\   ");
+            Console.WriteLine ("   / \   ");
+           }
+           if (failed_try == 5)
+           {
+            Console.WriteLine ("    X    ");
+            Console.WriteLine ("   /|\   ");
+            Console.WriteLine ("   / \   ");
+            isWinner = false;
+            Console.WriteLine("");
+            Console.WriteLine(" You died. Please try again...");
+            
+           }
+
+        }
+
     }
 } 
