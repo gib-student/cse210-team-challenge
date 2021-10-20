@@ -29,5 +29,4 @@ namespace _06_mastermind
 
 
         }
-    }
 }

@@ -4,6 +4,7 @@ namespace _06_mastermind
 {
     public class Director
     {
+<<<<<<< Updated upstream
         private bool _keepPlaying = true;
         private Board _board = new Board();
         private UserService _userService = new UserService();
@@ -71,6 +72,11 @@ namespace _06_mastermind
             }
             //Move to the Next Player
             _roster.AdvanceNextPlayer();
+=======
+        public void StartGame()
+        {
+            throw new NotImplementedException();
+>>>>>>> Stashed changes
         }
     }
 }
