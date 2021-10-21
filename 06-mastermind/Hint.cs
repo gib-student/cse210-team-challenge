@@ -14,11 +14,11 @@ namespace _06_mastermind
             {
                 if (user_random_num == _random_num)
                 {
-                    compare_board = true
+                    compare_board = true;
                 }
                 else if (user_random_num != _random_num)
                 {
-                    compare_board = false
+                    compare_board = false;
                 }
             }
             return !compare_board;
