@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace _06_mastermind
 {
@@ -23,7 +24,7 @@ namespace _06_mastermind
             // Add last given move (starts out as nothing)
             _board.Add("p1Move", "----");
             _board.Add("p2Move", "----");
-            // Add the starting hints (nothing)
+            // Add the starting hints (starts out as nothing)
             _board.Add("p1Hint", "****");
             _board.Add("p2Hint", "****");
         }
@@ -50,13 +51,29 @@ namespace _06_mastermind
         /// Return: true for yes, false for no.
         public bool GameOver()
         {
-            throw new NotImplementedException();
+            if ((_board["p1Num"] == _board["p1Move"]) ||
+                (_board["p2Num"] == _board["p2Move"]))
+            {
+                return true;
+            }
+            // Win conditions are not satisfied, game is not over
+            return false;
         }
 
         /// Make changes to the board.
         /// Change the player's last move and hint given to them.
         public void Apply(string name, int newNum, string newHint)
         {
+            // Validate the parameters
+            Debug.Assert(name == _board["player1"] || name == _board["player2"]);
+            Debug.Assert(newNum <= 9999 && newNum >= 1000);
+            int lettersNewHint = 0;
+            foreach (char letter in newHint)
+            {
+                lettersNewHint++;
+            }
+            Debug.Assert(lettersNewHint > 0 && lettersNewHint <= 4);
+
             string player="";
             if (name == _board["player1"])
             {
@@ -74,7 +91,7 @@ namespace _06_mastermind
             _board[player + "Hint"] = newHint;
         }
 
-        /// Generate a random number between param1(int) and param2(int)
+        /// Generate a random number between the limits provided.
         private int RandomGenerator(int lower, int upper)
         {
             Random randomNumber = new Random();
