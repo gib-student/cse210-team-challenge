@@ -32,6 +32,7 @@ namespace _06_mastermind
                 string name = _userService.GetStringInput(prompt);
 
                 _roster.AddPlayer(name);
+                Board _board = new Board(name);
             }
         }
         //Get any inputs from the user
