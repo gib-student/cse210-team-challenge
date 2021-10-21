@@ -7,25 +7,42 @@ namespace _06_mastermind
         // circule menas the number is correct but not in the right place
         // Exes means correct number in the corret position
         // asterict means 
-        private void compare_guess()
+
+        string asterisk = "";
+        string circles = "";
+        string exes = "";
+        private bool compare_guess()
         {
             bool compare_board = false;
-            foreach(int user_random_num in _random_num)
+            foreach(int user_random_num in RandomGenerator())
             {
-                if (user_random_num == _random_num)
+                if (user_random_num == RandomGenerator())
                 {
                     compare_board = true;
                 }
-                else if (user_random_num != _random_num)
+                else if (user_random_num != RandomGenerator())
                 {
                     compare_board = false;
                 }
             }
             return !compare_board;
         }
-        public get_hint()
+        public getHint()
         {
             string asterisk = "****";
+
+            foreach(int user_random_num in RandomGenerator())
+            {
+                if (user_random_num == RandomGenerator())
+                {
+                    string circles = "O";
+                    return circles;
+                }
+                else (user_random_num != RandomGenerator())
+                {
+                    string exes = "X";
+                }
+            }
 
 
         }
