@@ -8,6 +8,8 @@ namespace _06_mastermind
         private Board _board = new Board();
         private UserService _userService = new UserService();
         private Roster _roster = new Roster();
+        private Hint _hint = new Hint();
+        private int _guess;
         
         //Set up the game and run until game is finished
         public void StartGame()
@@ -42,20 +44,20 @@ namespace _06_mastermind
             //Get next player move
             Roster currentPlayer = _roster.GetCurrentPlayer();
             _userService.DisplayText($"{currentPlayer.GetName()}'s turn:");
-            int guess = _userService.GetNumberInput("What is your guess? ");
+            _guess = _userService.GetNumberInput("What is your guess? ");
 
             //Set the Hint for  Current Player Guess
-            Hint hint = new hint(guess);
-            currentPlayer.SetMove(move);
+            Hint hint = new hint(_guess);
+            currentPlayer.SetMove(hint);
         }
 
         //Update Actors
         private void DoUpdates()
         {   
             //Apply the move from Current Player to the Board
-            Roster currentPlayer = _roster.GetCurrentPlayer();
-            Hint currentMove = currentPlayer.GetHint();
-            _board.Apply(currentMove);
+            string currentPlayer = _roster.GetCurrentPlayer();
+            string hint = _hint.GetHint();
+            _board.Apply(currentPlayer, _guess, hint);
         }
         
         //Display the updated state of the Game to the User
