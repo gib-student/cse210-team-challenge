@@ -10,6 +10,8 @@ namespace _06_mastermind
         private int _numPlayers=0;
         private bool _debug = false; // Turn true to activate debug code
         
+        // This is a change
+
         /// Make a new game board.
         /// Board variable design: dictionary.
         public void AddPlayer(string name)
