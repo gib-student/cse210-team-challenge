@@ -7,17 +7,27 @@ namespace _06_mastermind
         private int _currentPlayerIndex = 0;
         private List<string> _players = new List<string>();
         
-        public void AddPlayer(Player player)
+        public void AddPlayer(string player)
         {
             _players.Add(player);
         }
-        public player GetCurrentPlayer()
+        public string GetCurrentPlayer()
         {
             return _players[_currentPlayerIndex];
         }
         public void AdvanceNextPlayer()
         {
-            _currentPlayerIndex = (_currentPlayerIndex + 1) % _players.Count;
+            if (_currentPlayerIndex == 0)
+            {
+                _currentPlayerIndex = 1;
+            }
+            else if (_currentPLayerIndex == 1)
+            {
+                _currentlayerIndex = 0;
+                
+            }
+            
+          
         }
         
 
