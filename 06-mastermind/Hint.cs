@@ -43,7 +43,6 @@ namespace _06_mastermind
                     string exes = "X";
                 }
             }
-
-
         }
+    }
 }
