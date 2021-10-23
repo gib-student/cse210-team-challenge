@@ -5,7 +5,7 @@ namespace _06_mastermind
     public class Roster
     {
         private int _currentPlayerIndex = 0;
-        private List<Player> _players = new List<Player>();
+        private List<string> _players = new List<string>();
         
         public void AddPlayer(Player player)
         {
