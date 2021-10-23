@@ -49,7 +49,7 @@ namespace _06_mastermind
             _guess = _userService.GetNumberInput("What is your guess? ");
 
             //Set the Hint for Current Player Guess
-            Hint hint = new hint(_board.GetSecretNum(currentPlayer), _guess);
+            string hint = _hint.GetHint(_board.GetSecretNum(currentPlayer), _guess);
             currentPlayer.SetMove(hint);
         }
 

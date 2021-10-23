@@ -75,7 +75,7 @@ namespace _06_mastermind
         }
 
         /// Return the secret number of the given player.
-        public int GetSecretNum(string playerName)
+        public List<int> GetSecretNum(string playerName)
         {
             string player=""
             if (playerName == _board["p1"])
