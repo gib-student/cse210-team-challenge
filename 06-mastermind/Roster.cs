@@ -30,13 +30,5 @@ namespace _06_mastermind
           
         }
         
-
-//         Console.WriteLine("Enter Player One's Name: ");
-//         string player_one = Console.ReadLine();
-//         Console.WriteLine("Enter Player Two's Name: ");
-//         string player_two = Console.ReadLine();
-//         Console.WriteLine($"Welcome, {player_one}");
-//         Console.WriteLine($"Welcome, {player_two}");
-        
       }
 }
