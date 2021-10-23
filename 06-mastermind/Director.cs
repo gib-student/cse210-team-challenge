@@ -31,8 +31,9 @@ namespace _06_mastermind
                 string prompt = $"Enter a name for player {i + 1}: ";
                 string name = _userService.GetStringInput(prompt);
 
+                //Add players to the roster and board
                 _roster.AddPlayer(name);
-                Board _board = new Board(name);
+                _board.AddPlayer(name);
             }
         }
         //Get any inputs from the user
