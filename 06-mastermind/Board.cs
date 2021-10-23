@@ -74,6 +74,16 @@ namespace _06_mastermind
             return boardString;
         }
 
+        /// Return the secret number of the given player.
+        public int GetSecretNum(string playerName)
+        {
+            string player=""
+            if (playerName == _board["p1"])
+            {
+
+            }
+        }
+
         /// Check if the game is over.
         /// Return: true for yes, false for no.
         public bool GameOver()

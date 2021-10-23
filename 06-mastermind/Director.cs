@@ -58,7 +58,9 @@ namespace _06_mastermind
         {   
             //Apply the move from Current Player to the Board
             string currentPlayer = _roster.GetCurrentPlayer();
-            string hint = _hint.GetHint({_board.GetSecretNum(currentPlayer());
+
+            string hint = _hint.GetHint(
+                _board.GetSecretNum(currentPlayer), _guess);
             _board.Apply(currentPlayer, _guess, hint);
         }
         
