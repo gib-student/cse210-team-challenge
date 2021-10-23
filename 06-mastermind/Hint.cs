@@ -1,49 +1,83 @@
 using System;
+using System.Collections.Generic;
 
 namespace _06_mastermind
 {
     public class Hint
     {
-        // circule menas the number is correct but not in the right place
-        // Exes means correct number in the corret position
-        // asterict means 
+        private string _hint="";
 
-        string asterisk = "";
-        string circles = "";
-        string exes = "";
-        private bool compare_guess()
-        {
-            bool compare_board = false;
-            foreach(int user_random_num in RandomGenerator())
+        /// Determine the hint which the user should get for his guess
+        public string GetHint(List<int> secretNum, List<int> guess)
+        {            
+            // Make the hint
+            // Go through every number in the guess
+            for (int i = 0; i <= 3; i++)
             {
-                if (user_random_num == RandomGenerator())
+                bool found = false;
+                
+                // Test for an x first
+                if (TestIfX(guess[i], secretNum[i]))
                 {
-                    compare_board = true;
+                    AddX();
+                    found = true;
                 }
-                else if (user_random_num != RandomGenerator())
+                // Test for an o second
+                if (!found)
                 {
-                    compare_board = false;
+                    if (TestIfO(guess[i], secretNum))
+                    {
+                        AddO();
+                        found = true;
+                    }
+                }
+                // If not an x or an o then surely it is an asterisk
+                if (!found)
+                {
+                    AddAsterisk();
+                    found = true;
                 }
             }
-            return !compare_board;
+
+            return _hint;
         }
-        public string GetHint(int SecretNum, int user_random_num)
-        {
-            string asterisk = "****";
 
-            foreach(user_random_num in SecretNum)
+        /// Test if the two numbers match
+        private bool TestIfX(int num1, int num2)
+        {
+            if (num1 == num2)
             {
-                if (user_random_num != SecretNum)
+                return true;
+            }
+            return false;
+        }
+        
+        /// Test if the guess exists anywhere in the secret number
+        private bool TestIfO(int guess, List<int> secretNum)
+        {
+            foreach(int num in secretNum)
+            {
+                if (guess == num)
                 {
-                    string circles = "OOOO";
-                    return circles;
-                }
-                else (user_random_num == SecretNum)
-                {
-                    string exes = "XXXX";
-                    return exes;
+                    return true;
                 }
             }
+            return false;
+        }
+
+        /// Add an x to the hint
+        private void AddX()
+        {
+            _hint += "x";
+        }
+
+        private void AddO()
+        {
+            _hint += "o";
+        }
+        private void AddAsterisk()
+        {
+            _hint += "*";
         }
     }
 }
