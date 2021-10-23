@@ -27,23 +27,23 @@ namespace _06_mastermind
             }
             return !compare_board;
         }
-        public getHint()
+        public string GetHint(int SecretNum, int user_random_num)
         {
             string asterisk = "****";
 
-            foreach(int user_random_num in RandomGenerator())
+            foreach(user_random_num in SecretNum)
             {
-                if (user_random_num == RandomGenerator())
+                if (user_random_num != SecretNum)
                 {
-                    string circles = "O";
+                    string circles = "OOOO";
                     return circles;
                 }
-                else (user_random_num != RandomGenerator())
+                else (user_random_num == SecretNum)
                 {
-                    string exes = "X";
+                    string exes = "XXXX";
+                    return exes;
                 }
             }
-
-
         }
+    }
 }
