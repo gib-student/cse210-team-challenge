@@ -48,8 +48,8 @@ namespace _06_mastermind
             _userService.DisplayText($"{currentPlayer.GetName()}'s turn:");
             _guess = _userService.GetNumberInput("What is your guess? ");
 
-            //Set the Hint for  Current Player Guess
-            Hint hint = new hint(_guess);
+            //Set the Hint for Current Player Guess
+            Hint hint = new hint(_board.GetSecretNum(currentPlayer), _guess);
             currentPlayer.SetMove(hint);
         }
 
