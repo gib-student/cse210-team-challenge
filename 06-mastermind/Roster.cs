@@ -4,9 +4,39 @@ namespace _06_mastermind
 {
     public class Roster
     {
-        static void Main(string[] args)
+        private int _currentPlayerIndex = 0;
+        private List<string> _players = new List<string>();
+        
+        public void AddPlayer(string player)
         {
-            Console.WriteLine("Starting point for the Mastermind project.");
+            _players.Add(player);
         }
-    }
+        public string GetCurrentPlayer()
+        {
+            return _players[_currentPlayerIndex];
+        }
+        public void AdvanceNextPlayer()
+        {
+            if (_currentPlayerIndex == 0)
+            {
+                _currentPlayerIndex = 1;
+            }
+            else if (_currentPLayerIndex == 1)
+            {
+                _currentlayerIndex = 0;
+                
+            }
+            
+          
+        }
+        
+
+//         Console.WriteLine("Enter Player One's Name: ");
+//         string player_one = Console.ReadLine();
+//         Console.WriteLine("Enter Player Two's Name: ");
+//         string player_two = Console.ReadLine();
+//         Console.WriteLine($"Welcome, {player_one}");
+//         Console.WriteLine($"Welcome, {player_two}");
+        
+      }
 }
