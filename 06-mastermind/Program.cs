@@ -10,8 +10,14 @@ namespace _06_mastermind
             _theDirector.StartGame();
 
             /// Debug
-            // Board _board = new Board();
-            // _board.AddPlayer("George");
+            // Hint _hint = new Hint();
+            // Console.WriteLine(_hint.GetHint("9194","0010"));
+            // Console.WriteLine(_hint.GetHint("1040","2245"));
+            // Console.WriteLine(_hint.GetHint("1859","2844"));
+            // Console.WriteLine(_hint.GetHint("2958","2848"));
+            // Console.WriteLine(_hint.GetHint("9194","1874"));
+            // Console.WriteLine(_hint.GetHint("8491","0242"));
+            // Console.WriteLine(_hint.GetHint("4774","9194"));
             
         }
     }

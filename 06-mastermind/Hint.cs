@@ -8,16 +8,22 @@ namespace _06_mastermind
         private string _hint="";
 
         /// Determine the hint which the user should get for his guess
-        public string GetHint(List<int> secretNum, List<int> guess)
-        {            
+        public string GetHint(string secretNumString, string guessString)
+        {
+            // Reset the hint
+            _hint = "";
+            
+            // Convert guess from string to a list<int>
+            List<int> guess = ConvertToListInt(guessString);
+            // Convert secretNum from string to a list<int>
+            List<int> secretNum = ConvertToListInt(secretNumString);
             // Make the hint
             // Go through every number in the guess
             for (int i = 0; i <= 3; i++)
             {
                 bool found = false;
-                
                 // Test for an x first
-                if (TestIfX(guess[i], secretNum[i]))
+                if (IsX(guess[i], secretNum[i]))
                 {
                     AddX();
                     found = true;
@@ -25,7 +31,7 @@ namespace _06_mastermind
                 // Test for an o second
                 if (!found)
                 {
-                    if (TestIfO(guess[i], secretNum))
+                    if (IsO(guess[i], secretNum))
                     {
                         AddO();
                         found = true;
@@ -43,7 +49,7 @@ namespace _06_mastermind
         }
 
         /// Test if the two numbers match
-        private bool TestIfX(int num1, int num2)
+        private bool IsX(int num1, int num2)
         {
             if (num1 == num2)
             {
@@ -53,7 +59,7 @@ namespace _06_mastermind
         }
         
         /// Test if the guess exists anywhere in the secret number
-        private bool TestIfO(int guess, List<int> secretNum)
+        private bool IsO(int guess, List<int> secretNum)
         {
             foreach(int num in secretNum)
             {
@@ -78,6 +84,17 @@ namespace _06_mastermind
         private void AddAsterisk()
         {
             _hint += "*";
+        }
+
+        /// Convert given string to a list<int>
+        private List<int> ConvertToListInt(string numbers)
+        {
+            List<int> numbersList = new List<int>();
+            foreach (char letter in numbers)
+            {
+                numbersList.Add(letter - '0');
+            }
+            return numbersList;
         }
     }
 }
