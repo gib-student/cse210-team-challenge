@@ -6,6 +6,7 @@ using System.Net;
 
 namespace _07_speed
 {
+    /// What is the purpose of this class?
     public class WordBank
     {
         static string _urlText;
