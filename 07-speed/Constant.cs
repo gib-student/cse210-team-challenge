@@ -2,6 +2,7 @@ using System;
 
 namespace _07_speed
 {
+    /// What is the purpose of this class?
     public static class Constant
     {
         public const int MAX_X = 600;
