@@ -7,29 +7,27 @@ namespace _07_speed
     /// What is the purpose of this class?
     class InputService
     {
-        
-    }
-     public string GetLetter()
-    {
-        int KeyInt = Raylib.GetKeyPressed();
-
-        {int KeyString  = "";
-
-            if (KeyInt  != 0)
+    public string GetLetter()
+        {
+            int KeyInt = Raylib.GetKeyPressed();
+            int KeyString  = "";
             {
-                if ((Raylib_cs.KeyboardKey)keyInt == Raylib_cs.KeyboardKey.KEY_ENTER)
+                if (KeyInt  != 0)
                 {
-                    keyString = "/n";
+                    if ((Raylib_cs.KeyboardKey)keyInt == Raylib_cs.KeyboardKey.KEY_ENTER)
+                    {
+                        keyString = "/n";
+                    }
+                    else
+                    {
+                        char keyChar = (char)KeyInt;
+                        keyString = keyChar.ToString().ToLower();
+                    }
                 }
-                else
-                {
-                    char keyChar = (char)KeyInt;
-                    keyString = keyChar.ToString().ToLower();
-                }
+                return KeyString;
             }
-            return KeyString;
-        }
 
+        }
     }
 }
 
