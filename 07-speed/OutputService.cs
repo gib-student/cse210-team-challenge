@@ -6,7 +6,7 @@ namespace _07_speed
 {
     // displaying the actual window and texts
     //handles all the interaction with the draawing library
-    class OutputService
+    public class OutputService
     {
         private Raylib_cs.Color _backgroundColor = Raylib_cs.Color.WHITE;
 

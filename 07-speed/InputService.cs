@@ -4,7 +4,7 @@ using Raylib_cs;
 
 namespace _07_speed
 {
-    class InputService
+    public class InputService
     {
     public string GetLetter()
         {

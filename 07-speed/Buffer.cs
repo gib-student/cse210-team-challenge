@@ -2,7 +2,7 @@ using System;
 
 namespace _07_speed
 {
-    class Buffer : Actor
+    public class Buffer : Actor
     {
 
     }
