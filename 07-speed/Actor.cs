@@ -4,6 +4,7 @@ namespace _07_speed
 {
     public class Actor
     {
+        // What's wrong with these variables?
         protected Point _position;
         protected Point _velocity;
 
