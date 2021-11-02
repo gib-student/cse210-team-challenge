@@ -2,7 +2,7 @@ using System;
 
 namespace _07_speed
 {
-    class Point
+    public class Point
     {
         private int _x;
         private int _y;

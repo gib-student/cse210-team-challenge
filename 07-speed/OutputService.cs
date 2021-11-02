@@ -4,7 +4,7 @@ using Raylib_cs;
 
 namespace _07_speed
 {
-    class OutputService
+    public class OutputService
     {
         private Raylib_cs.Color _backgroundColor = Raylib_cs.Color.WHITE;
 

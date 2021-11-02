@@ -2,7 +2,7 @@ using System;
 
 namespace _07_speed
 {
-    class Words : Actor
+    public class Words : Actor
     {
 
     }
