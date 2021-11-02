@@ -4,7 +4,6 @@ using Raylib_cs;
 
 namespace _07_speed
 {
-    /// What is the purpose of this class?
     class InputService
     {
     public string GetLetter()
