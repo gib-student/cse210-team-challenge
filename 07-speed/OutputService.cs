@@ -36,7 +36,7 @@ namespace _07_speed
         {
             Raylib.EndDrawing();
         }
-        public void DrawText(string text, bool whiteText)
+        public void DrawText(int x, int y, string text, bool whiteText)
         {
             Raylib_cs.Color color = Raylib_cs.Color.BLACK;
 
@@ -46,6 +46,8 @@ namespace _07_speed
             }
 
             Raylib.DrawText(text,
+                x ,
+                y ,
                 Constant.DEFAULT_FONT_SIZE,
                 color);
         }
@@ -55,12 +57,12 @@ namespace _07_speed
             int x = actor.GetX();
             int y = actor.GetY();
 
-            bool darkText = true;
+            bool whiteText = true;
 
             if (actor.HasText())
             {
                 string text = actor.GetText();
-                DrawText(x, y, text, darkText);
+                DrawText(x, y, text, whiteText);
             }
         }
 
