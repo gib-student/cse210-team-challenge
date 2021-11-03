@@ -2,7 +2,7 @@ using System;
 
 namespace _07_speed
 {
-    class Point
+    public class Point
     {
         private int _x;
         private int _y;
@@ -22,7 +22,6 @@ namespace _07_speed
         {
             return _y;
         }
-
         public Point Add(Point other)
         {
             int newX = _x + other._x;
@@ -30,7 +29,41 @@ namespace _07_speed
 
             return new Point(newX, newY);
         }
+        public Point Reverse()
+        {
+            int newX = _x * -1;
+            int newY = _y * -1;
 
-        
+            return new Point(newX, newY);
+        }
+
+<<<<<<< HEAD
+=======
+        public Point Reverse()
+        {
+            int newX = _x * -1;
+            int newY = _y * -1;
+
+            return new Point(newX, newY);
+        }
+
+>>>>>>> 354962267baa882585558563dde662b260219dc8
+        /// <summary>
+        /// Used by the system when you use == to compare the points.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            return obj is Point point &&
+                   _x == point._x &&
+                   _y == point._y;
+        }
+
+        // If you ever override the Equals function, you should also override the GetHashCode function
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(_x, _y);
+        }
     }
 }
