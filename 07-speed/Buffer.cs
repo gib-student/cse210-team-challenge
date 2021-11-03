@@ -3,8 +3,8 @@ using System;
 namespace _07_speed
 {
     /// Store the data which will be in the buffer on the bottom-left of the
-    /// screen. 
-    class Buffer : Actor
+    /// window. 
+    public class Buffer : Actor
     {
         public Buffer()
         {
@@ -12,7 +12,7 @@ namespace _07_speed
             _velocity = new Point(0,0);
         }
 
-        public void AddLetter(char letter)
+        public void AddLetter(string letter)
         {
             _text += letter;
         }
