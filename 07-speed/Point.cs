@@ -37,6 +37,17 @@ namespace _07_speed
             return new Point(newX, newY);
         }
 
+<<<<<<< HEAD
+=======
+        public Point Reverse()
+        {
+            int newX = _x * -1;
+            int newY = _y * -1;
+
+            return new Point(newX, newY);
+        }
+
+>>>>>>> 354962267baa882585558563dde662b260219dc8
         /// <summary>
         /// Used by the system when you use == to compare the points.
         /// </summary>
