@@ -8,7 +8,7 @@ namespace _07_speed
     //handles all the interaction with the draawing library
     class OutputService
     {
-        private Raylib_cs.Color _backgroundColor = Raylib_cs.Color.WHITE;
+        private Raylib_cs.Color _backgroundColor = Raylib_cs.Color.BLACK;
 
         public OutputService()
         {
@@ -35,6 +35,41 @@ namespace _07_speed
         public void EndDrawing()
         {
             Raylib.EndDrawing();
+        }
+        public void DrawText(string text, bool whiteText)
+        {
+            Raylib_cs.Color color = Raylib_cs.Color.BLACK;
+
+            if (whiteText)
+            {
+                color = Raylib_cs.Color.WHITE;
+            }
+
+            Raylib.DrawText(text,
+                Constant.DEFAULT_FONT_SIZE,
+                color);
+        }
+
+        public void DrawActor(Actor actor)
+        {
+            int x = actor.GetX();
+            int y = actor.GetY();
+
+            bool darkText = true;
+
+            if (actor.HasText())
+            {
+                string text = actor.GetText();
+                DrawText(x, y, text, darkText);
+            }
+        }
+
+        public void DrawActors(List<Actor> actors)
+        {
+            foreach (Actor actor in actors)
+            {
+                DrawActor(actor);
+            }
         }
     }
 }
