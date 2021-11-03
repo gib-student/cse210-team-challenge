@@ -6,10 +6,11 @@ namespace _07_speed
 {
     class InputService
     {
-    public string GetLetter()
+    public string GetLetterPressed()
         {
             int KeyInt = Raylib.GetKeyPressed();
             int KeyString  = "";
+
             {
                 if (KeyInt  != 0)
                 {
@@ -25,7 +26,6 @@ namespace _07_speed
                 }
                 return KeyString;
             }
-
         }
     }
 }
