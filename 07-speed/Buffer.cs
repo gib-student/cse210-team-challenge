@@ -6,26 +6,25 @@ namespace _07_speed
     /// screen. 
     class Buffer : Actor
     {
-        private Point _bufferPoint;
-
         public Buffer()
         {
             _position = new Point(599, 0);
+            _velocity = new Point(0,0);
         }
 
         public void AddLetter(char letter)
         {
-            _buffer += letter;
+            _text += letter;
         }
 
         public override string ToString()
         {
-            return _buffer;
+            return _text;
         }
 
         public void Clear()
         {
-            _buffer = "";
+            _text = "";
         }
     }
 }
