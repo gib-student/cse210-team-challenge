@@ -60,9 +60,16 @@ namespace _07_snake
         /// </summary>
         private void DoUpdates()
         {
+            GenerateNewWords();
+
+            foreach (Words word in _word)
+            {
+                _word.Move();
+            }
             _buffer.Display();
 
             HandleMatchingWord();
+            _word.RemoveOffScreenWord();
         }
 
         /// <summary>
@@ -76,8 +83,10 @@ namespace _07_snake
 
             _outputService.DrawActor(_buffer);
             
-            _outputService.DrawActors(_word);
-
+            foreach (Words word in _words)
+            {
+                _outputService.DrawActors(word);
+            }
             _outputService.EndDrawing();
         }
 
@@ -105,6 +114,10 @@ namespace _07_snake
                     }
                 }
             }
+        }
+        private void GenerateNewWord()
+        {
+
         }
     }
 }
