@@ -6,26 +6,37 @@ namespace _07_speed
 {
     class InputService
     {
-    public string GetLetterPressed()
+        
+        public InputService()
         {
-            int KeyInt = Raylib.GetKeyPressed();
-            int KeyString  = "";
+
+        }
+
+        public string GetLetterPressed()
+        {
+            int keyInteger = Raylib.GetKeyPressed();
+            int keyString  = int.Parse("");
 
             {
-                if (KeyInt  != 0)
+                if (keyInteger  != 0)
                 {
-                    if ((Raylib_cs.KeyboardKey)keyInt == Raylib_cs.KeyboardKey.KEY_ENTER)
+                    if ((Raylib_cs.KeyboardKey)keyInteger == Raylib_cs.KeyboardKey.KEY_ENTER)
                     {
                         keyString = "/n";
                     }
                     else
                     {
-                        char keyChar = (char)KeyInt;
+                        char keyChar = (char)keyInteger;
                         keyString = keyChar.ToString().ToLower();
                     }
                 }
-                return KeyString;
+                return keyString;
             }
+        }
+
+        public bool IsWindowClosing()
+        {
+            return Raylib.WindowShouldClose();
         }
     }
 }
