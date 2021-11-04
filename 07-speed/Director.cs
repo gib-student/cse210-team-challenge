@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Raylib_cs;
 
-namespace _07_snake
+namespace  _07_speed
 {
     public class Director
     {
@@ -13,8 +13,12 @@ namespace _07_snake
 
         Buffer _buffer = new Buffer();
 
-        Words _word= new Words();
         ScoreBoard _scoreBoard = new ScoreBoard();
+
+        List<Word> _words = new List<Word>();
+        Word _word = new Word();
+
+        string _letter = "";
 
         public void StartGame()
         {
@@ -50,8 +54,7 @@ namespace _07_snake
         {
             if (_inputService.LetterPressed())
             {
-                string letter = _inputService.GetLetterPressed();
-                _buffer.AddLetter(letter);
+                _letter = _inputService.GetLetterPressed();
             }
         }
 
@@ -60,16 +63,16 @@ namespace _07_snake
         /// </summary>
         private void DoUpdates()
         {
-            GenerateNewWords();
+            GenerateNewWord();
 
-            foreach (Words word in _word)
+            foreach (Word word in _words)
             {
                 _word.Move();
             }
-            _buffer.Display();
+            _buffer.AddLetter(_letter);
 
             HandleMatchingWord();
-            _word.RemoveOffScreenWord();
+            RemoveOffScreenWord();
         }
 
         /// <summary>
@@ -83,41 +86,60 @@ namespace _07_snake
 
             _outputService.DrawActor(_buffer);
             
-            foreach (Words word in _words)
+            foreach (Word word in _words)
             {
                 _outputService.DrawActors(word);
             }
             _outputService.EndDrawing();
         }
 
-        //Check to see if anyword matches, remove the word, clear buffer, and update scoreboard.
+        //Check to see if anyword matches
         private void HandleMatchingWord()
         {
-            List<string> correctWords = new List<string>();
-            List<string> words = _word.GetList();
-            foreach(string word in words)
+            List<Word> removeWords = new List<Word>();
+            foreach(Word word in _words)
             {
-                if (_buffer.ToString() == word)
+                if (word == _buffer)
                 {
-                    correctWords.Add(word);
-                    _buffer.Clear();
-                    _scoreBoard.AddPoints(word);
+                    removeWords.Add(word);
+                    _buffer.clear();
+                    _scoreBoard.AddScore(word);
                 }
             }
-            foreach(string word in words)
+            foreach (Word word in removeWords)
             {
-                foreach (string correctWord in correctWords)
-                {
-                    if (correctWord == word)
-                    {
-                        _word.Remove(correctWord);
-                    }
-                }
+                _words.Remove(word);
             }
+            
         }
+        //Add a new word to the screen
         private void GenerateNewWord()
         {
-
+            Random randomGenerator = new Random();
+            double randomNumber = randomGenerator.NextDouble();
+            if (randomNumber < Constant.RANDOM_WORD_RATE)
+            {
+                Word word = new Word();
+                _words.Add(word);
+            }
+            
+        }
+        //Remove any word from screen
+        private void RemoveOffScreenWord()
+        {
+            List<Word> removeWords = new List<Word>();
+            foreach (Word word in _words)
+            {
+                if (_word.OffScreen())
+                {
+                    removeWords.Add(word);
+                    _scoreBoard.SubtractWord(word);
+                }
+            }
+            foreach (Word word in removeWords)
+            {
+                _words.Remove(word);
+            }
         }
     }
 }
