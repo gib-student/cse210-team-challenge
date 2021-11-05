@@ -18,8 +18,6 @@ namespace  _07_speed
         List<Word> _words = new List<Word>();
         Word _word = new Word();
 
-        string _letter = "";
-
         public void StartGame()
         {
             PrepareGame();
@@ -44,7 +42,7 @@ namespace  _07_speed
         /// </summary>
         private void PrepareGame()
         {
-            object p = _outputService.OpenWindow(Constant.MAX_X, Constant.MAX_Y, "Speed", Constant.FRAME_RATE);
+            _outputService.OpenWindow(Constant.MAX_X, Constant.MAX_Y, "Speed", Constant.FRAME_RATE);
         }
 
         /// <summary>
@@ -52,9 +50,11 @@ namespace  _07_speed
         /// </summary>
         private void GetInputs()
         {
-            if (_inputService.LetterPressed())
+            string letter = _inputService.GetLetterPressed();
+            
+            if (letter != "")
             {
-                _letter = _inputService.GetLetterPressed();
+                _buffer.AddLetter(letter);
             }
         }
 
@@ -69,7 +69,6 @@ namespace  _07_speed
             {
                 _word.Move();
             }
-            _buffer.AddLetter(_letter);
 
             HandleMatchingWord();
             RemoveOffScreenWord();
@@ -102,7 +101,7 @@ namespace  _07_speed
                 if (word == _buffer)
                 {
                     removeWords.Add(word);
-                    _buffer.clear();
+                    _buffer.Clear();
                     _scoreBoard.AddScore(word);
                 }
             }

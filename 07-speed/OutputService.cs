@@ -15,7 +15,7 @@ namespace _07_speed
 
         }
 
-         public void OpenWindow(int width, int height, string title, int frameRate)
+        public void OpenWindow(int width, int height, string title, int frameRate)
         {
             Raylib.InitWindow(width, height, title);
             Raylib.SetTargetFPS(frameRate);

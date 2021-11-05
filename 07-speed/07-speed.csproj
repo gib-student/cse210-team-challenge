@@ -6,7 +6,7 @@
     <RootNamespace>_07_speed</RootNamespace>
   </PropertyGroup>
 
-    <ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Raylib-cs" Version="3.7.0.1" />
   </ItemGroup>
 
