@@ -5,6 +5,10 @@ namespace _07_speed
     /// <summary>
     /// The score board in the top portion of the game.
     /// </summary>
+
+    // NOTE FROM TREVOR: I simply copied and pasted this from Snake on 11.5 
+    // without checking its compatability. I did this bc Bro. Burton said it
+    // they are basically the same.
     class ScoreBoard : Actor
     {
         private int _points = 0;
