@@ -14,24 +14,23 @@ namespace _07_speed
 
         public string GetLetterPressed()
         {
-            int keyInteger = Raylib.GetKeyPressed();
-            int keyString  = int.Parse("");
-
+            int keyInt = Raylib.GetKeyPressed();
+            string keyString  = "";
+            
+            if (keyInt  != 0)
             {
-                if (keyInteger  != 0)
+                if ((Raylib_cs.KeyboardKey)keyInt == Raylib_cs.KeyboardKey.KEY_ENTER)
                 {
-                    if ((Raylib_cs.KeyboardKey)keyInteger == Raylib_cs.KeyboardKey.KEY_ENTER)
-                    {
-                        keyString = "/n";
-                    }
-                    else
-                    {
-                        char keyChar = (char)keyInteger;
-                        keyString = keyChar.ToString().ToLower();
-                    }
+                    keyString = "\n";
                 }
-                return keyString;
+                else
+                {
+                    char keyChar = (char)keyInt;
+                    keyString = keyChar.ToString().ToLower();
+                }
             }
+            
+            return keyString;
         }
 
         public bool IsWindowClosing()
