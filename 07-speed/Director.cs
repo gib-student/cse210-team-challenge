@@ -16,7 +16,6 @@ namespace  _07_speed
         ScoreBoard _scoreBoard = new ScoreBoard();
 
         List<Word> _words = new List<Word>();
-        Word _word = new Word();
 
         string _letter = "";
 
@@ -67,7 +66,7 @@ namespace  _07_speed
 
             foreach (Word word in _words)
             {
-                _word.Move();
+                word.Move();
             }
             _buffer.AddLetter(_letter);
 
@@ -88,7 +87,7 @@ namespace  _07_speed
             
             foreach (Word word in _words)
             {
-                _outputService.DrawActors(word);
+                _outputService.DrawActor(word);
             }
             _outputService.EndDrawing();
         }
@@ -99,7 +98,7 @@ namespace  _07_speed
             List<Word> removeWords = new List<Word>();
             foreach(Word word in _words)
             {
-                if (word == _buffer)
+                if (word.GetText() == _buffer.GetText())
                 {
                     removeWords.Add(word);
                     _buffer.clear();
@@ -110,7 +109,6 @@ namespace  _07_speed
             {
                 _words.Remove(word);
             }
-            
         }
         //Add a new word to the screen
         private void GenerateNewWord()
