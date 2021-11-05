@@ -7,6 +7,10 @@ namespace _07_speed
         protected Point _position;
         protected Point _velocity;
 
+        // What should these start as???
+        protected int _width;
+        protected int _height;
+
         protected int _fontSize = Constant.DEFAULT_FONT_SIZE;
         protected string _text = "";
 
