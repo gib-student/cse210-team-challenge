@@ -33,6 +33,13 @@ namespace _07_speed
             UpdateText();
         }
 
+        public void SubtractPoints(int points)
+        {
+            _points -= points;
+            UpdateText();
+        }
+        
+
         /// <summary>
         /// Updates the text to reflect the new points amount.
         /// This should be called whenever the points are updated.

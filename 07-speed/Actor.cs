@@ -82,5 +82,16 @@ namespace _07_speed
 
             _position = new Point(newX, newY);
         }
+        public bool OffScreen()
+        {
+            if (_position.GetX() < 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

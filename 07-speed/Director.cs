@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Raylib_cs;
 
-namespace  _07_speed
+namespace _07_speed
 {
     public class Director
     {
@@ -16,6 +15,7 @@ namespace  _07_speed
         ScoreBoard _scoreBoard = new ScoreBoard();
 
         List<Word> _words = new List<Word>();
+        WordBank _wordBank = new WordBank();
 
         public void StartGame()
         {
@@ -66,7 +66,7 @@ namespace  _07_speed
 
             foreach (Word word in _words)
             {
-                word.Move();
+                word.MoveNext();
             }
 
             HandleMatchingWord();
@@ -97,11 +97,12 @@ namespace  _07_speed
             List<Word> removeWords = new List<Word>();
             foreach(Word word in _words)
             {
-                if (word.GetText() == _buffer.GetText())
+                if (_buffer.IsMatch())
                 {
                     removeWords.Add(word);
                     _buffer.Clear();
-                    _scoreBoard.AddScore(word);
+                    int points = word.GetPoints();
+                    _scoreBoard.AddPoints(points);
                 }
             }
             foreach (Word word in removeWords)
@@ -116,7 +117,8 @@ namespace  _07_speed
             double randomNumber = randomGenerator.NextDouble();
             if (randomNumber < Constant.RANDOM_WORD_RATE)
             {
-                Word word = new Word();
+                string newWord = _wordBank.RandomWord();
+                Word word = new Word(newWord);
                 _words.Add(word);
             }
             
@@ -127,10 +129,11 @@ namespace  _07_speed
             List<Word> removeWords = new List<Word>();
             foreach (Word word in _words)
             {
-                if (_word.OffScreen())
+                if (word.OffScreen())
                 {
                     removeWords.Add(word);
-                    _scoreBoard.SubtractWord(word);
+                    int points = word.GetPoints();
+                    _scoreBoard.SubtractPoints(points);
                 }
             }
             foreach (Word word in removeWords)
