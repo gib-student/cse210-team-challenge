@@ -10,6 +10,15 @@ namespace _07_speed
         {
             _position = new Point(599, 0);
             _velocity = new Point(0,0);
+            _width = 10;
+            _height = 6;
+        }
+
+        public bool IsMatch()
+        {
+            // I think that I need a word from director in order to be able 
+            // to complete this task...
+            throw new NotImplementedException();
         }
 
         public void AddLetter(string letter)
