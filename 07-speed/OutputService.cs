@@ -65,6 +65,7 @@ namespace _07_speed
                 DrawText(x, y, text, whiteText);
             }
         }
+        
 
         public void DrawActors(List<Actor> actors)
         {
