@@ -97,7 +97,7 @@ namespace _07_speed
             List<Word> removeWords = new List<Word>();
             foreach(Word word in _words)
             {
-                if (_buffer.IsMatch())
+                if (_buffer.IsMatch(word))
                 {
                     removeWords.Add(word);
                     _buffer.Clear();
