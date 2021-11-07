@@ -21,9 +21,15 @@ namespace _07_speed
             int dx = randomGenerator.Next(1, Constant.MAX_WORD_SPEED);
             _velocity = new Point(-dx, 0);
         }
+        
         public int GetPoints()
         {
             return _text.Length;
+        }
+
+        public string GetWord()
+        {
+            return _text;
         }
     }
 }
