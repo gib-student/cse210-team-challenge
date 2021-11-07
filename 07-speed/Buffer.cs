@@ -8,10 +8,11 @@ namespace _07_speed
     {
         public Buffer()
         {
-            _position = new Point(599, 10);
-            _velocity = new Point(10,10);
-            _width = 10;
-            _height = 6;
+            _text = "";
+            _position = new Point(0, 370);
+            _velocity = new Point(0,0);
+            _width = 20;
+            _height = 20;
         }
 
         public bool IsMatch(Word word)
@@ -31,7 +32,7 @@ namespace _07_speed
 
         public void Clear()
         {
-            _text = "";
+            _text = "Buffer: ";
         }
     }
 }
