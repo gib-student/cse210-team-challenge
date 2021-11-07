@@ -6,8 +6,6 @@ namespace _07_speed
     {
         protected Point _position;
         protected Point _velocity;
-
-        // What should these start as???
         protected int _width;
         protected int _height;
 
@@ -84,14 +82,8 @@ namespace _07_speed
         }
         public bool OffScreen()
         {
-            if (_position.GetX() < 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return _position.GetX() < 0;
+            
         }
     }
 }
