@@ -8,17 +8,15 @@ namespace _07_speed
     {
         public Buffer()
         {
-            _position = new Point(599, 0);
-            _velocity = new Point(0,0);
+            _position = new Point(599, 10);
+            _velocity = new Point(10,10);
             _width = 10;
             _height = 6;
         }
 
-        public bool IsMatch()
+        public bool IsMatch(Word word)
         {
-            // I think that I need a word from director in order to be able 
-            // to complete this task...
-            throw new NotImplementedException();
+            return (word.GetWord() == _text);
         }
 
         public void AddLetter(string letter)
