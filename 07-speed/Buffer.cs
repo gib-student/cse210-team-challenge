@@ -9,7 +9,7 @@ namespace _07_speed
         public Buffer()
         {
             _text = "";
-            _position = new Point(0, 370);
+            _position = new Point(20, 370);
             _velocity = new Point(0,0);
             _width = 20;
             _height = 20;
