@@ -17,7 +17,7 @@ namespace _07_speed
 
         public bool IsMatch(Word word)
         {
-            return (word.GetWord() == _text);
+            return (_text.Contains(word.GetWord()));
         }
 
         public void AddLetter(string letter)

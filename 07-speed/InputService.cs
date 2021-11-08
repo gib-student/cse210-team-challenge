@@ -21,7 +21,7 @@ namespace _07_speed
             {
                 if ((Raylib_cs.KeyboardKey)keyInt == Raylib_cs.KeyboardKey.KEY_ENTER)
                 {
-                    keyString = "\n";
+                    keyString = "";
                 }
                 else
                 {
